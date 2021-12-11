@@ -55,7 +55,7 @@ int main(){
                     result[4]=amount[4]*6000;
                 }
                 for(int i=0;i<5;i++){
-            total_amount+=result[i];
+                total_amount+=result[i];
             }
                 printf("\nDo you want to order anything else(type yes), or do you want to proceed to the payment?(type no)");
                 scanf("%s",answer);
@@ -63,8 +63,16 @@ int main(){
             printf("\nThese items have been added to your cart.");
             printf("\nThe total amount to pay is %d MAD",total_amount);
             }
-
+            if(balance>=total_amount){
+                balance-=total_amount;
+                printf("\nThe transaction has been done ");
+            }
+            for(int i=0;i<2;i++){
+            else if(balance<=total_amount){
+                printf("You can't buy these items insufficent balance, try another account");
+                printf("\nEnter another account:");
+                scanf("");
+            }
+            }
             return 0;
         }
-        
-    
