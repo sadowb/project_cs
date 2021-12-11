@@ -24,9 +24,11 @@ int main(){
             while(strcmp(answer,"yes")==0){
                 printf("\nType what you want to buy based on the menu: ");
                 scanf("%s",choice);
-                for(int i=0;i<7;i++){
-                tolower(choice[i]);
-                }
+                int i=0;
+                while(choice[i]!='\0'){
+                choice[i]=tolower( choice[i]);
+                i++;
+            }
                 if(strcmp(choice,"book")==0){
                     printf("How many books do you want? ");
                     scanf("%d",&amount[0]);
@@ -61,6 +63,7 @@ int main(){
             printf("\nThese items have been added to your cart.");
             printf("\nThe total amount to pay is %d MAD",total_amount);
             }
+
             return 0;
         }
         
