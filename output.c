@@ -10,7 +10,7 @@ int main ()
     {
         fgets(SingleLine,300,fp);
         puts(SingleLine);
-        strl
+        // still working towards it
     }
     
     fclose(fp);
