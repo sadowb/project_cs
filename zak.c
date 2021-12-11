@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-#include<ctype.h>
+#include<ctype.h> // what is this library what does it do 
+// we need to comment the work
 
 int main(){
     int total_amount=0;
@@ -11,7 +12,7 @@ int main(){
         ,{"SkinCare"}
         ,{"Watch"}
         ,{"Desk"}
-        ,{"Laptop"}
+      ,{"Laptop"}
     };
     int price[5]={200,700,1000,4000,7000};
     printf("Welcome, if you want to make an order, type 'order'; if you want to change your information,type 'change': ");
@@ -22,7 +23,7 @@ int main(){
                 printf("%s for %d MAD\t",menu[i],price[i]);
             }
             while(strcmp(answer,"yes")==0){
-                printf("\nType what you want to buy based on the menu: ");
+                printf("\nType what you want to buy based on the menu: \n");
                 scanf("%s",choice);
                 int i=0;
                 while(choice[i]!='\0'){
@@ -57,7 +58,7 @@ int main(){
                 for(int i=0;i<5;i++){
                 total_amount+=result[i];
             }
-                printf("\nDo you want to order anything else(type yes), or do you want to proceed to the payment?(type no)");
+                printf("\nDo you want to order anything else(type yes), or do you want to proceed to the payment?(type no)\n");
                 scanf("%s",answer);
             }
             printf("\nThese items have been added to your cart.");
