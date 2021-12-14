@@ -65,7 +65,7 @@ int main(){
             }
             
             if(strcmp(word,"change") == 0){
-                char c;
+                char c[100000];
                 c = fgetc(fp);
                 while(c!=EOF){
                     printf("%s",c);
