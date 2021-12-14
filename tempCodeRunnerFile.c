@@ -1,13 +1,31 @@
-#include<stdio.h>
-#include<ctype.h>
-#include<string.h>
-int main(){
-    char choice[]={"Hello"};
-    int i=0;
-    while(choice[i]!='\0'){
-    choice[i]=tolower( choice[i]);
-    i++;
-}
-printf("%s",choice);
-                return 0;
+#include <stdio.h>
+#include <stdlib.h> // For exit()
+
+int main()
+{
+	FILE *fptr;
+
+	char filename[100], c;
+
+	printf("Enter the filename to open \n");
+	scanf("%s", filename);
+
+	// Open file
+	fptr = fopen(filename, "r");
+	if (fptr == NULL)
+	{
+		printf("Cannot open file \n");
+		exit(0);
+	}
+
+	// Read contents from file
+	c = fgetc(fptr);
+	while (c != EOF)
+	{
+		printf ("%c", c);
+		c = fgetc(fptr);
+	}
+
+	fclose(fptr);
+	return 0;
 }
