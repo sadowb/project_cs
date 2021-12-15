@@ -2,19 +2,20 @@
 #include<string.h>
 #include<ctype.h> // what is this library what does it do 
 // we need to comment the work
+#include<stdbool.h>
 
-int main(){
+int main(int argc, char *argv[]){
     FILE *fp;
     fp=fopen("database.txt","r");
     int total_amount=0;
     int amount[5]={0},result[5]={0};
-    char word[7];
+    char word[8];
     char answer[]={"yes"},choice[10];
     char menu[5][20]={{"Book"}
         ,{"Skin Care"}
         ,{"Watch"}
         ,{"Desk"}
-      ,{"Laptop"}
+        ,{"Laptop"}
     };
     int price[5]={200,700,1000,4000,7000};
     printf("Welcome, if you want to make an order, type 'order'; if you want to change your information,type 'change': ");
@@ -75,15 +76,35 @@ int main(){
             printf("\nThese items have been added to your cart.");
             printf("\nThe total amount to pay is %d MAD",total_amount);
             }
-            
-            if(strcmp(word,"change") == 0){
-                char c[100000];
-                c = fgetc(fp);
-                while(c!=EOF){
-                    printf("%s",c);
-                    c = fgetc(fp);
-                }
-            }
         }
+        
+        if(strcmp(word,"change")== 0){
+    FILE *file = fopen("database.txt", "r"); 
+
+	bool copy_characters = false; 
+	int line_number = 0; 
+	const int desired_line = 3; 
+
+	for (;;) { 
+		int c = fgetc(fp); 
+		if (EOF == c) { 
+			break; 
+		} else if (' ' == c) { 
+			++line_number; 
+			if (desired_line == line_number) { 
+				copy_characters = true; 
+			} else if (copy_characters) { 
+				break; 
+			} 
+		} else if (copy_characters) { 
+			puts(c);
+		} 
+	} 
+	putchar('\n'); 
+	fclose(file); 
+
+    }
+
 return 0;
-        }
+
+}
