@@ -75,20 +75,20 @@ int main(int argc, char *argv[]){
             }
         }
         if(strcmp(word,"change")== 0){
-    FILE *fp;
-    fp = fopen("hello.txt", "r+");
+    FILE *file;
+    file = fopen("hello.txt", "w+");
 	bool copy_characters = false; 
 	int line_number = 1; 
 	const int desired_line = 2;
     char information[3][40];
     printf("Email:");
-    fscanf(fp,"%s",information[1]);
+    fscanf(file,"%s",information[1]);
 	puts(information[1]);
     printf("First Name:");
 fscanf(fp,"%s",information[2]);
 puts(information[2]);
 printf("Family name:");
-fscanf(fp,"%s",information[3]);
+fscanf(file,"%s",information[3]);
 puts(information[3]);
     }
     else{
@@ -98,7 +98,7 @@ puts(information[3]);
     getchar();
     gets(answer);
     if(strcmp(answer,"yes")==0){
-        fseek(fp,7,SEEK_SET);
+        fseek(file,7,SEEK_SET);
         fputs("hello",fp);
         }
         fclose(fp); 
