@@ -25,8 +25,8 @@ typedef struct user
     char fname[MAX];
     char lname[MAX];
     char password[MAX];
-    int bank[MAX];
-    int balance[MAX];
+    char bank[MAX];
+    char balance[MAX];
     char secret[MAX];
     char answer[MAX];
     
@@ -51,8 +51,8 @@ int main ()
     }
      
     // read file contents till end of file
-    while(fscanf(fp,"%s %s %s %s %d %d %s %s",input.email, input.fname, input.lname,input.password,input.bank,input.balance,input.secret,input.answer)!=EOF)
-        printf ("email = %s fname = %s lname = %s password is %s bank_account is %d balance is %d secret_question is %s the answer is %s\n", input.email, input.fname, input.lname,input.password,input.bank,input.balance,input.secret,input.answer);
+    while(fscanf(fp,"%s %s %s %s %s %s %s %s",input.email, input.fname, input.lname,input.password,input.bank,input.balance,input.secret,input.answer)!=EOF)
+        printf ("email = %s fname = %s lname = %s password is %s bank_account is %s balance is %s secret_question is %s the answer is %s\n", input.email, input.fname, input.lname,input.password,input.bank,input.balance,input.secret,input.answer);
  
     // close file
     fclose (fp);
