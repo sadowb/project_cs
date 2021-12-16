@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-#include<ctype.h> // what is this library what does it do 
-// we need to comment the work
+#include<ctype.h> 
 #include<stdbool.h>
 
 int main(int argc, char *argv[]){
@@ -76,21 +75,21 @@ int main(int argc, char *argv[]){
             }
         }
         if(strcmp(word,"change")== 0){
-    FILE *file = fopen("database.txt", "r+");
+    FILE *file;
+    file = fopen("hello.txt", "w+");
 	bool copy_characters = false; 
 	int line_number = 1; 
 	const int desired_line = 2;
     char information[3][40];
     printf("Email:");
-fscanf(file,"%s",information[1]);
+    fscanf(file,"%s",information[1]);
 	puts(information[1]);
     printf("First Name:");
-fscanf(file,"%s",information[2]);
+fscanf(fp,"%s",information[2]);
 puts(information[2]);
 printf("Family name:");
 fscanf(file,"%s",information[3]);
 puts(information[3]);
-	fclose(file); 
     }
     else{
         printf("Error ");
@@ -98,12 +97,12 @@ puts(information[3]);
     printf("\n If you wish to change the information type yes ");
     getchar();
     gets(answer);
-    if(str(answer,"yes")==0){
-        printf("Enter your password: ");
-        scanf("%s",XXXXXXXX);
-        
+    if(strcmp(answer,"yes")==0){
+        fseek(file,7,SEEK_SET);
+        fputs("hello",fp);
         }
-    }
+        fclose(fp); 
+    
 return 0;
 
 }
