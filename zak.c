@@ -5,8 +5,7 @@
 #include<stdbool.h>
 
 int main(int argc, char *argv[]){
-    FILE *fp;
-    fp=fopen("database.txt","r");
+
     int total_amount=0;
     int amount[5]={0},result[5]={0};
     char word[8];
@@ -33,7 +32,6 @@ int main(int argc, char *argv[]){
                 gets(choice);
                 strlwr(choice);
                 if(strcmp(choice,"book")==0 || strcmp(choice,"book ")==0 ){
-
                 printf("\nType what you want to buy based on the menu: \n");
                 scanf("%s",choice);
                 int i=0;
@@ -77,34 +75,35 @@ int main(int argc, char *argv[]){
             printf("\nThe total amount to pay is %d MAD",total_amount);
             }
         }
-        
         if(strcmp(word,"change")== 0){
-    FILE *file = fopen("database.txt", "r"); 
-
+    FILE *file = fopen("database.txt", "r+");
 	bool copy_characters = false; 
-	int line_number = 0; 
-	const int desired_line = 3; 
-
-	for (;;) { 
-		int c = fgetc(fp); 
-		if (EOF == c) { 
-			break; 
-		} else if (' ' == c) { 
-			++line_number; 
-			if (desired_line == line_number) { 
-				copy_characters = true; 
-			} else if (copy_characters) { 
-				break; 
-			} 
-		} else if (copy_characters) { 
-			puts(c);
-		} 
-	} 
-	putchar('\n'); 
+	int line_number = 1; 
+	const int desired_line = 2;
+    char information[3][40];
+    printf("Email:");
+fscanf(file,"%s",information[1]);
+	puts(information[1]);
+    printf("First Name:");
+fscanf(file,"%s",information[2]);
+puts(information[2]);
+printf("Family name:");
+fscanf(file,"%s",information[3]);
+puts(information[3]);
 	fclose(file); 
-
     }
-
+    else{
+        printf("Error ");
+    }
+    printf("\n If you wish to change the information type yes ");
+    getchar();
+    gets(answer);
+    if(str(answer,"yes")==0){
+        printf("Enter your password: ");
+        scanf("%s",XXXXXXXX);
+        
+        }
+    }
 return 0;
 
 }
