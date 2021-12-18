@@ -25,21 +25,23 @@ int main()
 
     if (name_changes == 2)
         printf("Do You Want to Change your Name? 1=Yes| 2= No");
-        scanf("%c", password_changes);
+        scanf(" %c", &password_changes);
 
-    if (password_changes == 1)
     {    
         printf("Change Password: ");
         scanf("%c", change_password1);
         printf("Re-enter Password: ");
         scanf("%c", change_password2);
-    
+   
 
     if (change_password1 != change_password2)
     {
         printf("Password does not match:");
         printf("Please Enter a Matching Password: ");
-    }
+    }else if (change_password1 == change_password2)
+    {
+        printf("*********Correct**Password**Input*********");
+    } 
     if (password_changes == 2)
         printf("Do You Want to Change your Name? 1=Yes| 2= No");
         scanf("%c", email_changes);
@@ -66,4 +68,4 @@ int main()
 }else{
     return 0;
     
-}
+}    
