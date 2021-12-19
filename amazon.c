@@ -17,10 +17,15 @@ while (*p) {
 
 return str;
 }
+void output(int);
 void sign_up(int );
 void sign_in(int );
 void login();
 void zak(int id,int counter);
+    
+    char min;
+    int tempo;
+    char temp [50];
     char new_lname[100],new_fname[100], new_password[50], new_email[100], new_bankaccount[30],question[100],new_reply[100];
     int  new_balance[100];
     char address[30];
@@ -136,7 +141,7 @@ printf("Welcome, if you want to make an order, type 'order'; if you want to chan
                 scanf("%s",answer);
                 for(;;){
                 if(strcmp(answer,"yes")==0){
-                    
+                    output(counter);
                     break;
                 }
                 else if(strcmp(answer,"no")==0){
@@ -149,7 +154,7 @@ printf("Welcome, if you want to make an order, type 'order'; if you want to chan
                 
             else if(balance[id]<total_amount){
                 printf("\nYou do not have enough balance consider change your bank info");
-                scanf("%s",&bank_account[id]);
+                scanf("%s",bank_account[id]);
             }
         }
 else if(strcmp(word,"change")==0){
@@ -164,19 +169,19 @@ else if(strcmp(word,"change")==0){
     scanf("%d",&number);
     if(number==1){
         printf("\nType a first name: ");
-        scanf("%s",&fname[id]);
+        scanf("%s",fname[id]);
     }
     else if(number==2){
         printf("\nType a last name: ");
-        scanf("%s",&lname[id]);
+        scanf("%s",lname[id]);
     }
     else if(number==3){
         printf("\nType a new email: ");
-        scanf("%s",&email[id]);
+        scanf("%s",email[id]);
     }
     else if(number==4){
         printf("\nType a bank account: ");
-        scanf("%s",&bank_account[id]);
+        scanf("%s",bank_account[id]);
         printf("What is the balance: ");
         scanf("%d",&balance[id]);
     }
@@ -295,4 +300,76 @@ printf("\nEnter your email: ");
     	
     }
    
+}
+void output(int counter)
+{
+    for (int i = 2; i < counter ; i++)
+    {
+        min = i;
+      for (int j = i; j < counter; j++)
+      {
+        
+      if( lname[min][0] > lname[j][0] || ( lname[min][0] == lname[j][0] && lname[min][1] > lname[j][1] ) )
+        min = j;
+        
+      
+             
+        strcpy(temp, lname[i] );
+        strcpy(lname[i] , lname[min] );
+        strcpy( lname[min] , temp);
+            
+
+              
+        strcpy(temp ,  fname[i] );
+        strcpy(fname[i] , fname[min] );
+        strcpy(fname[min] , temp );
+              
+              
+        
+        strcpy(temp ,  email[i] );        
+        strcpy(  email[i] , email[min]);
+        strcpy(  email[min] , temp);
+              
+            
+
+            
+        strcpy(  temp ,  password[i]);
+        strcpy( password[i] , password[min] );
+        strcpy( password[min] , temp);
+            
+              
+        strcpy( temp ,  bank_account[i] );
+        strcpy( bank_account[i] , bank_account[min]);
+        strcpy( bank_account[min] , temp );
+              
+              
+
+        tempo =  balance[i];
+        balance[i] = balance[min];
+        balance[min] = tempo;
+
+            
+        strcpy(  temp ,  secret_question[i]);
+        strcpy( secret_question[i] , secret_question[min]);
+        strcpy(secret_question[min] , temp );
+              
+              
+
+              
+        strcpy(temp ,  reply[i] );
+        strcpy(reply[i] , reply[min] );
+        strcpy(reply[min] , temp );
+       }  
+    
+      }
+   
+    
+    for (int i = 2 ;i<counter ; i++)
+    {
+      printf("here is the email %s\n here is the first name %s\n here is the last name %s\n here is the password %s\n here is the bank account %s\n here is the balance %d\n here is the secret question %s\n here is the answer %s \n"
+      ,email[i],fname[i],lname[i],password[i],bank_account[i],balance[i],secret_question[i],reply[i]);
+      printf("\n");
+
+
+    } 
 }
