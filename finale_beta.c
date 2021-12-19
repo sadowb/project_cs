@@ -18,7 +18,7 @@ while (*p) {
 return str;
 }
 void output(int);
-void sign_up(int );
+int sign_up(int );
 void sign_in(int );
 void login();
 void zak(int id,int counter);
@@ -153,11 +153,12 @@ printf("Welcome, if you want to make an order, type 'order'; if you want to chan
                 }
                 
             else if(balance[id]<total_amount){
-                printf("\nYou do not have enough balance consider change your bank info");
-                scanf("%s",&bank_account[id]);
+                printf("\nYou do not have enough balance consider change your bank info type change to continue\n");
+                scanf("%s",word);
+                
             }
         }
-else if(strcmp(word,"change")==0){
+    if(strcmp(word,"change")==0){
     for(int j=3;j>0;j--){
     printf("Type your password: ");
     scanf("%s",passcode);
@@ -169,19 +170,19 @@ else if(strcmp(word,"change")==0){
     scanf("%d",&number);
     if(number==1){
         printf("\nType a first name: ");
-        scanf("%s",&fname[id]);
+        scanf("%s",fname[id]);
     }
     else if(number==2){
         printf("\nType a last name: ");
-        scanf("%s",&lname[id]);
+        scanf("%s",lname[id]);
     }
     else if(number==3){
         printf("\nType a new email: ");
-        scanf("%s",&email[id]);
+        scanf("%s",email[id]);
     }
     else if(number==4){
         printf("\nType a bank account: ");
-        scanf("%s",&bank_account[id]);
+        scanf("%s",bank_account[id]);
         printf("What is the balance: ");
         scanf("%d",&balance[id]);
     }
@@ -233,8 +234,9 @@ else {
 }
 }
 
-void sign_up(int count){
-	int B = 0;	
+int sign_up(int count){
+	int B = 0;
+    int flag = 0;	
     printf("Enter Your First Name\t");
     scanf("%s", new_fname);
     printf("Enter Your last Name\t");
@@ -255,18 +257,25 @@ void sign_up(int count){
         if (strcmp(new_email,email[i])==0 || strcmp(new_bankaccount,bank_account[i])==0)//checks with the arrays if the arrays
         {
         printf("\nYou already have an existant account, Please login");
-        break;
+        return 0;
+        
+        }
     }
-    else if(strcmp(new_email,email[i])!=0 && strcmp(new_bankaccount,bank_account[i])!=0)
-    {   int B = 0;
-        FILE *fptr=fopen("database.txt","a");
+   /* else if(strcmp(new_email,email[i])!=0 && strcmp(new_bankaccount,bank_account[i])!=0)*/
+        
+       if (flag == 0)
+       
+       {
+           FILE *fptr=fopen("database.txt","a");
         fprintf(fptr,"%s %s %s %s %s %d %s %s\n",new_email,new_fname,new_lname,new_password,new_bankaccount,new_balance[B],question,new_reply);
         fclose(fptr);
         printf("Succesfully signed up");
         printf("\nLog in again");
-        break;
-        }
-    }
+        return 0;
+       }
+        
+   return 0;     
+ 
 }
 
 void sign_in(int count)
